@@ -4,14 +4,14 @@
 #define Lower_Bound 0.2
 #define Upper_Bound 0.8
 
-//¹¹Ôìº¯Êý
+//ï¿½ï¿½ï¿½ìº¯ï¿½ï¿½
 Graph_DG::Graph_DG(int vexnum, vector<Road>& ROAD) {
 
 
-	//³õÊ¼»¯¶¥µãÊýºÍ±ßÊý
+	//ï¿½ï¿½Ê¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í±ï¿½ï¿½ï¿½
 	this->vexnum = vexnum;
 	this->edge = edge;
-	//ÎªÁÚ½Ó¾ØÕó¿ª±Ù¿Õ¼äºÍ¸³³õÖµ
+	//Îªï¿½Ú½Ó¾ï¿½ï¿½ó¿ª±Ù¿Õ¼ï¿½Í¸ï¿½ï¿½ï¿½Öµ
 	arc = new int*[this->vexnum];
 	dis = new int*[this->vexnum];
 	path = new int*[this->vexnum];
@@ -22,7 +22,7 @@ Graph_DG::Graph_DG(int vexnum, vector<Road>& ROAD) {
 		path[i] = new int[this->vexnum];
 		map[i] = new int[this->vexnum];
 		for (int k = 0; k < this->vexnum; k++) {
-			//ÁÚ½Ó¾ØÕó³õÊ¼»¯	//µØÍ¼¾ØÕó³õÊ¼»¯
+			//ï¿½Ú½Ó¾ï¿½ï¿½ï¿½ï¿½Ê¼ï¿½ï¿½	//ï¿½ï¿½Í¼ï¿½ï¿½ï¿½ï¿½ï¿½Ê¼ï¿½ï¿½
 			if (i == k) {
 				arc[i][k] = 0;
 				map[i][k] = 0;
@@ -34,7 +34,7 @@ Graph_DG::Graph_DG(int vexnum, vector<Road>& ROAD) {
 		}
 	}
 
-	//½¨ÓÐÏòÍ¼
+	//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í¼
 	edge = 0;
 	for (int i = 0; i < (int)(ROAD.size()); i++)
 	{
@@ -47,12 +47,12 @@ Graph_DG::Graph_DG(int vexnum, vector<Road>& ROAD) {
 	}
 }
 
-//×¨ÓÃÓÚ´¦ÀíËÀËø³µÁ¾µÄ¹¹Ôìº¯Êý
+//×¨ï¿½ï¿½ï¿½Ú´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä¹ï¿½ï¿½ìº¯ï¿½ï¿½
 Graph_DG::Graph_DG(const Graph_DG &OriginalCarGraph) {
-	//³õÊ¼»¯¶¥µãÊýºÍ±ßÊý
+	//ï¿½ï¿½Ê¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í±ï¿½ï¿½ï¿½
 	this->vexnum = OriginalCarGraph.vexnum;
 	this->edge = OriginalCarGraph.edge;
-	//ÎªÁÚ½Ó¾ØÕó¿ª±Ù¿Õ¼äºÍ¸³³õÖµ
+	//Îªï¿½Ú½Ó¾ï¿½ï¿½ó¿ª±Ù¿Õ¼ï¿½Í¸ï¿½ï¿½ï¿½Öµ
 	arc = new int*[this->vexnum];
 	dis = new int*[this->vexnum];
 	path = new int*[this->vexnum];
@@ -63,7 +63,7 @@ Graph_DG::Graph_DG(const Graph_DG &OriginalCarGraph) {
 		path[i] = new int[this->vexnum];
 		map[i] = new int[this->vexnum];
 		for (int k = 0; k < this->vexnum; k++) {
-			//¸´ÖÆÔ­µØÍ¼µÄÊý¾Ý
+			//ï¿½ï¿½ï¿½ï¿½Ô­ï¿½ï¿½Í¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 			arc[i][k] = OriginalCarGraph.arc[i][k];
 			//dis[i][k] = OriginalCarGraph.dis[i][k];
 			//path[i][k] = OriginalCarGraph.path[i][k];
@@ -72,7 +72,7 @@ Graph_DG::Graph_DG(const Graph_DG &OriginalCarGraph) {
 	}
 }
 
-//Îö¹¹º¯Êý
+//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 Graph_DG::~Graph_DG() {
 
 	for (int i = 0; i < this->vexnum; i++) {
@@ -89,7 +89,7 @@ Graph_DG::~Graph_DG() {
 }
 
 void Graph_DG::createGraph(int kind, vector<Road>& ROAD, int num_road) {
-	//cout << "ÇëÊäÈëÃ¿Ìõ±ßµÄÆðµãºÍÖÕµã£¨¶¥µã±àºÅ´Ó1¿ªÊ¼£©ÒÔ¼°ÆäÈ¨ÖØ" << endl;
+	//cout << "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ã¿ï¿½ï¿½ï¿½ßµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Õµã£¨ï¿½ï¿½ï¿½ï¿½ï¿½Å´ï¿½1ï¿½ï¿½Ê¼ï¿½ï¿½ï¿½Ô¼ï¿½ï¿½ï¿½È¨ï¿½ï¿½" << endl;
 	int start;
 	int end;
 	int weight;
@@ -109,21 +109,21 @@ void Graph_DG::createGraph(int kind, vector<Road>& ROAD, int num_road) {
 		weight = (ROAD[count].length / ROAD[count].channel) + maxRoadSpeed - ROAD[count].speed;
 		//weight =ROAD[count].length - ROAD[count].channel;
 
-		//Ê×ÏÈÅÐ¶Ï±ßµÄÐÅÏ¢ÊÇ·ñºÏ·¨£¬ºóÆÚ¿ÉÉ¾³ýÒÔ½ÚÊ¡Ê±¼ä
+		//ï¿½ï¿½ï¿½ï¿½ï¿½Ð¶Ï±ßµï¿½ï¿½ï¿½Ï¢ï¿½Ç·ï¿½Ï·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ú¿ï¿½É¾ï¿½ï¿½ï¿½Ô½ï¿½Ê¡Ê±ï¿½ï¿½
 		//while (!this->check_edge_value(start, end, weight)) {
-		//	cout << "ÊäÈëµÄ±ßµÄÐÅÏ¢²»ºÏ·¨£¬ÇëÖØÐÂÊäÈë" << endl;
+		//	cout << "ï¿½ï¿½ï¿½ï¿½Ä±ßµï¿½ï¿½ï¿½Ï¢ï¿½ï¿½ï¿½Ï·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½" << endl;
 		//	//exit(1);
 		//	//cin >> start >> end >> weight;
 		//}
 
-		//¶ÔÁÚ½Ó¾ØÕó¶ÔÓ¦ÉÏµÄµã¸³Öµ
+		//ï¿½ï¿½ï¿½Ú½Ó¾ï¿½ï¿½ï¿½ï¿½Ó¦ï¿½ÏµÄµã¸³Öµ
 		arc[start][end] = weight;
 		map[start ][end] = ROAD[count].id;
-		//ÎÞÏòÍ¼Ìí¼ÓÉÏÕâÐÐ´úÂë
+		//ï¿½ï¿½ï¿½ï¿½Í¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð´ï¿½ï¿½ï¿½
 		//if (kind == 2)
 		//	arc[end - 1][start - 1] = weight;
 
-		//Ë«ÐÐµÀ
+		//Ë«ï¿½Ðµï¿½
 		if (ROAD[count].isDuplex == 1) {
 			arc[end][start] = weight;
 			map[end][start] = ROAD[count].id;
@@ -132,17 +132,17 @@ void Graph_DG::createGraph(int kind, vector<Road>& ROAD, int num_road) {
 	}
 }
 
-//ºóÆÚÉ¾³ý£¬ÓÃ²»µ½µÄ
+//ï¿½ï¿½ï¿½ï¿½É¾ï¿½ï¿½ï¿½ï¿½ï¿½Ã²ï¿½ï¿½ï¿½ï¿½ï¿½
 void Graph_DG::print() {
-	cout << "Í¼µÄÁÚ½Ó¾ØÕóÎª£º" << endl;
-	int count_row = 0; //´òÓ¡ÐÐµÄ±êÇ©
-	int count_col = 0; //´òÓ¡ÁÐµÄ±êÇ©
-					   //¿ªÊ¼´òÓ¡
+	cout << "Í¼ï¿½ï¿½ï¿½Ú½Ó¾ï¿½ï¿½ï¿½Îªï¿½ï¿½" << endl;
+	int count_row = 0; //ï¿½ï¿½Ó¡ï¿½ÐµÄ±ï¿½Ç©
+	int count_col = 0; //ï¿½ï¿½Ó¡ï¿½ÐµÄ±ï¿½Ç©
+					   //ï¿½ï¿½Ê¼ï¿½ï¿½Ó¡
 	while (count_row != this->vexnum) {
 		count_col = 0;
 		while (count_col != this->vexnum) {
 			if (arc[count_row][count_col] == MAX_NUM)
-				cout << "¡Þ" << " ";
+				cout << "ï¿½ï¿½" << " ";
 			else
 				cout << arc[count_row][count_col] << " ";
 			++count_col;
@@ -152,31 +152,31 @@ void Graph_DG::print() {
 	}
 }
 
-//Ëã·¨µÄºËÐÄ
+//ï¿½ã·¨ï¿½Äºï¿½ï¿½ï¿½
 void Graph_DG::Floyd() {
 	int row = 0;
 	int col = 0;
 	for (row = 0; row < this->vexnum; row++) {
 		for (col = 0; col < this->vexnum; col++) {
-			//°Ñ¾ØÕóD³õÊ¼»¯ÎªÁÚ½Ó¾ØÕóµÄÖµ
+			//ï¿½Ñ¾ï¿½ï¿½ï¿½Dï¿½ï¿½Ê¼ï¿½ï¿½Îªï¿½Ú½Ó¾ï¿½ï¿½ï¿½ï¿½Öµ
 			this->dis[row][col] = this->arc[row][col];
-			//¾ØÕóPµÄ³õÖµÔòÎª¸÷¸ö±ßµÄÖÕµã¶¥µãµÄÏÂ±ê
+			//ï¿½ï¿½ï¿½ï¿½Pï¿½Ä³ï¿½Öµï¿½ï¿½Îªï¿½ï¿½ï¿½ï¿½ï¿½ßµï¿½ï¿½Õµã¶¥ï¿½ï¿½ï¿½ï¿½Â±ï¿½
 			this->path[row][col] = col;
 		}
 	}
 
-	//ÈýÖØÑ­»·£¬ÓÃÓÚ¼ÆËãÃ¿¸öµã¶ÔµÄ×î¶ÌÂ·¾¶
+	//ï¿½ï¿½ï¿½ï¿½Ñ­ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ú¼ï¿½ï¿½ï¿½Ã¿ï¿½ï¿½ï¿½ï¿½Ôµï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½
 	int temp = 0;
 	int select = 0;
 	for (temp = 0; temp < this->vexnum; temp++) {
 		for (row = 0; row < this->vexnum; row++) {
 			for (col = 0; col < this->vexnum; col++) {
-				//ÎªÁË·ÀÖ¹Òç³ö£¬ËùÒÔÐèÒªÒýÈëÒ»¸öselectÖµ
+				//Îªï¿½Ë·ï¿½Ö¹ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Òªï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½selectÖµ
 				select = (dis[row][temp] == MAX_NUM || dis[temp][col] == MAX_NUM) ? MAX_NUM : (dis[row][temp] + dis[temp][col]);
 				if (this->dis[row][col] > select) {
-					//¸üÐÂÎÒÃÇµÄD¾ØÕó
+					//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Çµï¿½Dï¿½ï¿½ï¿½ï¿½
 					this->dis[row][col] = select;
-					//¸üÐÂÎÒÃÇµÄP¾ØÕó
+					//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Çµï¿½Pï¿½ï¿½ï¿½ï¿½
 					this->path[row][col] = this->path[row][temp];
 				}
 			}
@@ -184,9 +184,9 @@ void Graph_DG::Floyd() {
 	}
 }
 
-//ºóÆÚÉ¾³ý£¬ÓÃ²»µ½µÄ
+//ï¿½ï¿½ï¿½ï¿½É¾ï¿½ï¿½ï¿½ï¿½ï¿½Ã²ï¿½ï¿½ï¿½ï¿½ï¿½
 void Graph_DG::print_path() {
-	cout << "¸÷¸ö¶¥µã¶ÔµÄ×î¶ÌÂ·¾¶£º" << endl;
+	cout << "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ôµï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½" << endl;
 	int row = 0;
 	int col = 0;
 	int temp = 0;
@@ -195,7 +195,7 @@ void Graph_DG::print_path() {
 			cout << "v" << to_string(row + 1) << "---" << "v" << to_string(col + 1) << " weight: "
 				<< this->dis[row][col] << " path: " << " v" << to_string(row + 1);
 			temp = path[row][col];
-			//Ñ­»·Êä³öÍ¾¾¶µÄÃ¿ÌõÂ·¾¶¡£
+			//Ñ­ï¿½ï¿½ï¿½ï¿½ï¿½Í¾ï¿½ï¿½ï¿½ï¿½Ã¿ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½
 			while (temp != col) {
 				cout << "-->" << "v" << to_string(temp + 1);
 				temp = path[temp][col];
@@ -205,15 +205,15 @@ void Graph_DG::print_path() {
 		cout << endl;
 	}
 
-	//cout << "DIS¾ØÕóÎª£º" << endl;
-	//int count_row = 0; //´òÓ¡ÐÐµÄ±êÇ©
-	//int count_col = 0; //´òÓ¡ÁÐµÄ±êÇ©
-	//				   //¿ªÊ¼´òÓ¡
+	//cout << "DISï¿½ï¿½ï¿½ï¿½Îªï¿½ï¿½" << endl;
+	//int count_row = 0; //ï¿½ï¿½Ó¡ï¿½ÐµÄ±ï¿½Ç©
+	//int count_col = 0; //ï¿½ï¿½Ó¡ï¿½ÐµÄ±ï¿½Ç©
+	//				   //ï¿½ï¿½Ê¼ï¿½ï¿½Ó¡
 	//while (count_row != this->vexnum) {
 	//	count_col = 0;
 	//	while (count_col != this->vexnum) {
 	//		if (dis[count_row][count_col] == INT_MAX)
-	//			cout << "¡Þ" << " ";
+	//			cout << "ï¿½ï¿½" << " ";
 	//		else
 	//			cout << dis[count_row][count_col] << " ";
 	//		++count_col;
@@ -223,7 +223,7 @@ void Graph_DG::print_path() {
 	//}
 }
 
-//½«FloydËã³öµÄÂ·¾¶´æÈë
+//ï¿½ï¿½Floydï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 void Graph_DG::set_path(vector<Car>& CAR, vector<Cross>& CROSS, vector<Road> &ROAD, int num_car) {
 	int row = 0;
 	int col = 0;
@@ -239,12 +239,12 @@ void Graph_DG::set_path(vector<Car>& CAR, vector<Cross>& CROSS, vector<Road> &RO
 	for (int i = 0; i < num_car; i++) {
 		//if (i == 61442)
 		//	int HHH = 1;
-		if (CAR[i].preset == 1) {//Èç¹ûÊÇÔ¤ÖÃ³µÁ¾
-			//CAR[i].direction.clear();//²»ÐèÒª£¬ÒòÎªÈ«³ÌÏÂÀ´£¬Ô¤ÖÃ³µÁ¾Ö»»áÉèÖÃÒ»´Îdirection			
+		if (CAR[i].preset == 1) {//ï¿½ï¿½ï¿½ï¿½ï¿½Ô¤ï¿½Ã³ï¿½ï¿½ï¿½
+			//CAR[i].direction.clear();//ï¿½ï¿½ï¿½ï¿½Òªï¿½ï¿½ï¿½ï¿½ÎªÈ«ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ô¤ï¿½Ã³ï¿½ï¿½ï¿½Ö»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½direction			
 			
 			for (int j = 0; j < (int)(CAR[i].route.size()); ++j) {
-				//last_position = 0;
-				if (j == 0) {//µÚÒ»¸ö×ªÏò£¬¿Ï¶¨ÊÇÖ±ÐÐ
+				last_position = 0;
+				if (j == 0) {//ï¿½ï¿½Ò»ï¿½ï¿½×ªï¿½ò£¬¿Ï¶ï¿½ï¿½ï¿½Ö±ï¿½ï¿½
 					CAR[i].direction.push_back(0);
 					last_position = CAR[i].from;
 					temp_road_id = CAR[i].route[j];
@@ -254,24 +254,24 @@ void Graph_DG::set_path(vector<Car>& CAR, vector<Cross>& CROSS, vector<Road> &RO
 					else if (ROAD[temp_road_id].to == last_position) {
 						next_position = ROAD[temp_road_id].from;
 					}
-					last_position = next_position;//×¢Òâ
+					last_position = next_position;//×¢ï¿½ï¿½
 					continue;
 				}
 				last_road_id = CAR[i].route[j - 1];
-				next_road_id = CAR[i].route[j];//j´Ó1¿ªÊ¼²Å»á½øÈëÕâÀï£¬Ò²¾ÍÊÇµÚ¶þÌõÂ·¾¶¿ªÊ¼²Å¿¼ÂÇ×ªÏò
+				next_road_id = CAR[i].route[j];//jï¿½ï¿½1ï¿½ï¿½Ê¼ï¿½Å»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï£¬Ò²ï¿½ï¿½ï¿½ÇµÚ¶ï¿½ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½Ê¼ï¿½Å¿ï¿½ï¿½ï¿½×ªï¿½ï¿½
 				if (ROAD[next_road_id].from == last_position) {
 					next_position = ROAD[next_road_id].to;
 				}
 				if (ROAD[next_road_id].to == last_position) {
 					next_position = ROAD[next_road_id].from;
 				}
-				//ÕâÀï¿ªÊ¼¿¼ÂÇµÚ¶þ¸öÆðµÄ×ªÏò
+				//ï¿½ï¿½ï¿½ï¿ªÊ¼ï¿½ï¿½ï¿½ÇµÚ¶ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½×ªï¿½ï¿½
 				road_id[0] = CROSS[last_position].road1;
 				road_id[1] = CROSS[last_position].road2;
 				road_id[2] = CROSS[last_position].road3;
 				road_id[3] = CROSS[last_position].road4;
 
-				//ÉèÖÃ×ªÏò
+				//ï¿½ï¿½ï¿½ï¿½×ªï¿½ï¿½
 				for (k = 0; k < 4; k++) {
 					if (last_road_id == road_id[k]) {
 						now_road_direction = k;
@@ -279,7 +279,7 @@ void Graph_DG::set_path(vector<Car>& CAR, vector<Cross>& CROSS, vector<Road> &RO
 					}
 				}
 				if (k == 4) {
-					cout << "³ö´íÀ²£¬Õâ¸öÂ·¿ÚÕÒ²»µ½Ä¿Ç°ËùÔÚµÄÂ·£¡Ò»°ã²»»á³öÏÖ" << endl;
+					cout << "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ï¿½Ò²ï¿½ï¿½ï¿½Ä¿Ç°ï¿½ï¿½ï¿½Úµï¿½Â·ï¿½ï¿½Ò»ï¿½ã²»ï¿½ï¿½ï¿½ï¿½ï¿½" << endl;
 					//system("pause");
 					exit(1);
 				}
@@ -291,34 +291,34 @@ void Graph_DG::set_path(vector<Car>& CAR, vector<Cross>& CROSS, vector<Road> &RO
 					}
 				}
 				if (k == 4) {
-					cout << "³ö´íÀ²£¬Õâ¸öÂ·¿ÚÕÒ²»µ½ÏÂÒ»ÌõÂ·£¡Ò»°ã²»»á³öÏÖ" << endl;
+					cout << "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ï¿½Ò²ï¿½ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½Â·ï¿½ï¿½Ò»ï¿½ã²»ï¿½ï¿½ï¿½ï¿½ï¿½" << endl;
 					//system("pause");
 					exit(1);
 				}
 				err = next_road_direction - now_road_direction;
-				//ÉèÖÃ×ªÏòÐÅÏ¢£¬Èç¹ûË³Ê±Õë1£¬¾ÍÊÇ×ó×ª£»Èç¹ûÄæÊ±Õë-1£¬¾ÍÊÇÓÒ×ª£»Èç¹ûÏà²î2¾ÍÊÇÖ±ÐÐ
+				//ï¿½ï¿½ï¿½ï¿½×ªï¿½ï¿½ï¿½ï¿½Ï¢ï¿½ï¿½ï¿½ï¿½ï¿½Ë³Ê±ï¿½ï¿½1ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½×ªï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½-1ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½×ªï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½2ï¿½ï¿½ï¿½ï¿½Ö±ï¿½ï¿½
 				switch (err)
 				{
-				case 1:		//×ó×ª
+				case 1:		//ï¿½ï¿½×ª
 					CAR[i].direction.push_back(1);
 					break;
-				case -3:	//×ó×ª
+				case -3:	//ï¿½ï¿½×ª
 					CAR[i].direction.push_back(1);
 					break;
-				case -1:	//ÓÒ×ª
+				case -1:	//ï¿½ï¿½×ª
 					CAR[i].direction.push_back(2);
 					break;
-				case 3:		//ÓÒ×ª
+				case 3:		//ï¿½ï¿½×ª
 					CAR[i].direction.push_back(2);
 					break;
-				case 2:		//Ö±ÐÐ
+				case 2:		//Ö±ï¿½ï¿½
 					CAR[i].direction.push_back(0);
 					break;
-				case -2:	//Ö±ÐÐ
+				case -2:	//Ö±ï¿½ï¿½
 					CAR[i].direction.push_back(0);
 					break;
 				default:
-					cout << "³öÏÖÁËµôÍ·£¬²»ÔÊÐí£¡" << endl;
+					cout << "ï¿½ï¿½ï¿½ï¿½ï¿½Ëµï¿½Í·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½" << endl;
 					exit(1);
 					//system("pause");
 					break;
@@ -348,18 +348,18 @@ void Graph_DG::set_path(vector<Car>& CAR, vector<Cross>& CROSS, vector<Road> &RO
 					}
 				}
 				if (k == 4) {
-					cout << "³ö´íÀ²£¬Õâ¸öÂ·¿ÚÕÒ²»µ½Ä¿Ç°ËùÔÚµÄÂ·£¡Ò»°ã²»»á³öÏÖ" << endl;
+					cout << "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ï¿½Ò²ï¿½ï¿½ï¿½Ä¿Ç°ï¿½ï¿½ï¿½Úµï¿½Â·ï¿½ï¿½Ò»ï¿½ã²»ï¿½ï¿½ï¿½ï¿½ï¿½" << endl;
 					//system("pause");
 					exit(1);
 				}
 
-				//ÉèÖÃÂ·¾¶
+				//ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½
 				temp_next = path[temp][col];
 				temp_road_id = map[temp][temp_next];
 				CAR[i].route.push_back(temp_road_id);
 				temp = temp_next;
 
-				//ÉèÖÃ×ªÏò
+				//ï¿½ï¿½ï¿½ï¿½×ªï¿½ï¿½
 				for (k = 0; k < 4; k++) {
 					if (temp_road_id == road_id[k]) {
 						next_road_direction = k;
@@ -367,7 +367,7 @@ void Graph_DG::set_path(vector<Car>& CAR, vector<Cross>& CROSS, vector<Road> &RO
 					}
 				}
 				if (k == 4) {
-					cout << "³ö´íÀ²£¬Õâ¸öÂ·¿ÚÕÒ²»µ½ÏÂÒ»ÌõÂ·£¡Ò»°ã²»»á³öÏÖ" << endl;
+					cout << "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ï¿½Ò²ï¿½ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½Â·ï¿½ï¿½Ò»ï¿½ã²»ï¿½ï¿½ï¿½ï¿½ï¿½" << endl;
 					//system("pause");
 					exit(1);
 				}
@@ -375,29 +375,29 @@ void Graph_DG::set_path(vector<Car>& CAR, vector<Cross>& CROSS, vector<Road> &RO
 
 
 
-				//ÉèÖÃ×ªÏòÐÅÏ¢£¬Èç¹ûË³Ê±Õë1£¬¾ÍÊÇ×ó×ª£»Èç¹ûÄæÊ±Õë-1£¬¾ÍÊÇÓÒ×ª£»Èç¹ûÏà²î2¾ÍÊÇÖ±ÐÐ
+				//ï¿½ï¿½ï¿½ï¿½×ªï¿½ï¿½ï¿½ï¿½Ï¢ï¿½ï¿½ï¿½ï¿½ï¿½Ë³Ê±ï¿½ï¿½1ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½×ªï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½-1ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½×ªï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½2ï¿½ï¿½ï¿½ï¿½Ö±ï¿½ï¿½
 				switch (err)
 				{
-				case 1:		//×ó×ª
+				case 1:		//ï¿½ï¿½×ª
 					CAR[i].direction.push_back(1);
 					break;
-				case -3:	//×ó×ª
+				case -3:	//ï¿½ï¿½×ª
 					CAR[i].direction.push_back(1);
 					break;
-				case -1:	//ÓÒ×ª
+				case -1:	//ï¿½ï¿½×ª
 					CAR[i].direction.push_back(2);
 					break;
-				case 3:		//ÓÒ×ª
+				case 3:		//ï¿½ï¿½×ª
 					CAR[i].direction.push_back(2);
 					break;
-				case 2:		//Ö±ÐÐ
+				case 2:		//Ö±ï¿½ï¿½
 					CAR[i].direction.push_back(0);
 					break;
-				case -2:	//Ö±ÐÐ
+				case -2:	//Ö±ï¿½ï¿½
 					CAR[i].direction.push_back(0);
 					break;
 				default:
-					cout << "³öÏÖÁËµôÍ·£¬²»ÔÊÐí£¡" << endl;
+					cout << "ï¿½ï¿½ï¿½ï¿½ï¿½Ëµï¿½Í·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½" << endl;
 					exit(1);
 					//system("pause");
 					break;
@@ -407,8 +407,8 @@ void Graph_DG::set_path(vector<Car>& CAR, vector<Cross>& CROSS, vector<Road> &RO
 	}
 }
 
-//´øËÀËø´¦ÀíµÄsetPath
-//ÕâÀïÒª×¢Òâ£¬Èç¹ûÊÇÔ¤ÖÃ³µÁ¾£¬²»ÄÜÕâÃ´´¦Àí£¡£¡£¡£¡£¡£¡ÒÔºóÔÙÐ´£¡£¡£¡£¡£¡£¡£¡£¡£¡
+//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½setPath
+//ï¿½ï¿½ï¿½ï¿½Òª×¢ï¿½â£¬ï¿½ï¿½ï¿½ï¿½ï¿½Ô¤ï¿½Ã³ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ã´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ôºï¿½ï¿½ï¿½Ð´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 void Graph_DG::set_path_DealLock(Car &CAR, vector<Cross>& CROSS) {
 	int row = 0;
 	int col = 0;
@@ -443,18 +443,18 @@ void Graph_DG::set_path_DealLock(Car &CAR, vector<Cross>& CROSS) {
 				}
 			}
 			if (k == 4) {
-				cout << "³ö´íÀ²£¬Õâ¸öÂ·¿ÚÕÒ²»µ½Ä¿Ç°ËùÔÚµÄÂ·£¡Ò»°ã²»»á³öÏÖ" << endl;
+				cout << "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ï¿½Ò²ï¿½ï¿½ï¿½Ä¿Ç°ï¿½ï¿½ï¿½Úµï¿½Â·ï¿½ï¿½Ò»ï¿½ã²»ï¿½ï¿½ï¿½ï¿½ï¿½" << endl;
 				//system("pause");
 				exit(1);
 			}
 
-			//ÉèÖÃÂ·¾¶
+			//ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½
 			temp_next = path[temp][col];
 			temp_road_id = map[temp][temp_next];
 			CAR.route.push_back(temp_road_id);
 			temp = temp_next;
 
-			//ÉèÖÃ×ªÏò
+			//ï¿½ï¿½ï¿½ï¿½×ªï¿½ï¿½
 			for (k = 0; k < 4; k++) {
 				if (temp_road_id == road_id[k]) {
 					next_road_direction = k;
@@ -462,7 +462,7 @@ void Graph_DG::set_path_DealLock(Car &CAR, vector<Cross>& CROSS) {
 				}
 			}
 			if (k == 4) {
-				cout << "³ö´íÀ²£¬Õâ¸öÂ·¿ÚÕÒ²»µ½ÏÂÒ»ÌõÂ·£¡Ò»°ã²»»á³öÏÖ" << endl;
+				cout << "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ï¿½Ò²ï¿½ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½Â·ï¿½ï¿½Ò»ï¿½ã²»ï¿½ï¿½ï¿½ï¿½ï¿½" << endl;
 				//system("pause");
 				exit(1);
 			}
@@ -470,29 +470,29 @@ void Graph_DG::set_path_DealLock(Car &CAR, vector<Cross>& CROSS) {
 
 
 
-			//ÉèÖÃ×ªÏòÐÅÏ¢£¬Èç¹ûË³Ê±Õë1£¬¾ÍÊÇ×ó×ª£»Èç¹ûÄæÊ±Õë-1£¬¾ÍÊÇÓÒ×ª£»Èç¹ûÏà²î2¾ÍÊÇÖ±ÐÐ
+			//ï¿½ï¿½ï¿½ï¿½×ªï¿½ï¿½ï¿½ï¿½Ï¢ï¿½ï¿½ï¿½ï¿½ï¿½Ë³Ê±ï¿½ï¿½1ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½×ªï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½-1ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½×ªï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½2ï¿½ï¿½ï¿½ï¿½Ö±ï¿½ï¿½
 			switch (err)
 			{
-			case 1:		//×ó×ª
+			case 1:		//ï¿½ï¿½×ª
 				CAR.direction.push_back(1);
 				break;
-			case -3:	//×ó×ª
+			case -3:	//ï¿½ï¿½×ª
 				CAR.direction.push_back(1);
 				break;
-			case -1:	//ÓÒ×ª
+			case -1:	//ï¿½ï¿½×ª
 				CAR.direction.push_back(2);
 				break;
-			case 3:		//ÓÒ×ª
+			case 3:		//ï¿½ï¿½×ª
 				CAR.direction.push_back(2);
 				break;
-			case 2:		//Ö±ÐÐ
+			case 2:		//Ö±ï¿½ï¿½
 				CAR.direction.push_back(0);
 				break;
-			case -2:	//Ö±ÐÐ
+			case -2:	//Ö±ï¿½ï¿½
 				CAR.direction.push_back(0);
 				break;
 			default:
-				cout << "³öÏÖÁËµôÍ·£¬²»ÔÊÐí£¡" << endl;
+				cout << "ï¿½ï¿½ï¿½ï¿½ï¿½Ëµï¿½Í·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½" << endl;
 				exit(1);
 				//system("pause");
 				break;
@@ -512,9 +512,9 @@ void Graph_DG::set_path_DealLock_back(Car &CAR, vector<Cross>& CROSS, vector<Roa
 	int dir_now_road_id, dir_next_road_id, temp_direction, dir_temp;
 	int now_road_id;
 
-	int pass_cross_id=0;//¼ÌÐø×ß¹ýµÄÂ·¿Ú£¬²»ÒªµôÍ·
+	int pass_cross_id=0;//ï¿½ï¿½ï¿½ï¿½ï¿½ß¹ï¿½ï¿½ï¿½Â·ï¿½Ú£ï¿½ï¿½ï¿½Òªï¿½ï¿½Í·
 	vector<int> link_cross;
-	//bool back_flag[4] = { false,false,false,false };//Õâ¸ö±äÁ¿ºÃÏñÒ²Ã»É¶ÓÃ£¬µÈÏÂÉ¾ÁË
+	//bool back_flag[4] = { false,false,false,false };//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ò²Ã»É¶ï¿½Ã£ï¿½ï¿½ï¿½ï¿½ï¿½É¾ï¿½ï¿½
 	int road_weight[4] = { MAX_NUM ,MAX_NUM ,MAX_NUM ,MAX_NUM };
 	int min_road_weight = MAX_NUM;
 	int min_link_cross = -1;
@@ -525,34 +525,34 @@ void Graph_DG::set_path_DealLock_back(Car &CAR, vector<Cross>& CROSS, vector<Roa
 	/*bool IS = false;*/
 
 		now_road_id = CAR.location[0];
-		//vector<int>::iterator iter = find(CAR[i].route.begin(), CAR[i].route.end(), now_road_id); //²éÕÒ3
+		//vector<int>::iterator iter = find(CAR[i].route.begin(), CAR[i].route.end(), now_road_id); //ï¿½ï¿½ï¿½ï¿½3
 		if (CAR.route[CAR.passRoadNumber] != now_road_id) {
-			cout << "¸Ã³µÂ·¾¶ÀïÃ»ÕÒµ½Ä¿Ç°ÕâÌõÂ·£¬Ò»°ã²»»á³öÏÖ£¬³öÏÖÁËËµÃ÷³ÌÐòÃ»Ð´¶Ô" << endl;
+			cout << "ï¿½Ã³ï¿½Â·ï¿½ï¿½ï¿½ï¿½Ã»ï¿½Òµï¿½Ä¿Ç°ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½Ò»ï¿½ã²»ï¿½ï¿½ï¿½ï¿½Ö£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ëµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ã»Ð´ï¿½ï¿½" << endl;
 			//system("pause");
 			exit(1);
 		}
 		//if (iter == CAR[i].route.end()) {
-		//	cout << "Ã»ÕÒµ½£¬Ò»°ã²»»á³öÏÖ£¬³öÏÖÁËËµÃ÷³ÌÐòÃ»Ð´¶Ô" << endl;
+		//	cout << "Ã»ï¿½Òµï¿½ï¿½ï¿½Ò»ï¿½ã²»ï¿½ï¿½ï¿½ï¿½Ö£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ëµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ã»Ð´ï¿½ï¿½" << endl;
 		//	system("pause");
 		//	exit(1);
 		//}
-		//if ((iter + 1) == CAR[i].route.end()) {//Ä¿Ç°ÕâÌõÂ·ÊÇ¸Ã³µµÄ×îºóÒ»¶ÎÂ·£¬Ò²²»Òª´ÕÈÈÄÖÁË
+		//if ((iter + 1) == CAR[i].route.end()) {//Ä¿Ç°ï¿½ï¿½ï¿½ï¿½Â·ï¿½Ç¸Ã³ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½Â·ï¿½ï¿½Ò²ï¿½ï¿½Òªï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 		//	continue;
 		//}
 
 
-		/************ÕâÀï¿ªÊ¼ÊÇ¼ÆËãÊÇ·ñ»ØÍ·£¬ÊÇ·ñÒª»»Â·****************/
+		/************ï¿½ï¿½ï¿½ï¿ªÊ¼ï¿½Ç¼ï¿½ï¿½ï¿½ï¿½Ç·ï¿½ï¿½Í·ï¿½ï¿½ï¿½Ç·ï¿½Òªï¿½ï¿½Â·****************/
 		min_link_cross = -1;
 		if (CAR.isReverse == 0) {
 			CAR.nextCross = ROAD[now_road_id].to;
-			pass_cross_id = ROAD[now_road_id].from;//¸Õ¸ÕÒÑ¾­×ß¹ýµÄÂ·¿Ú
+			pass_cross_id = ROAD[now_road_id].from;//ï¿½Õ¸ï¿½ï¿½Ñ¾ï¿½ï¿½ß¹ï¿½ï¿½ï¿½Â·ï¿½ï¿½
 		}
 		if (CAR.isReverse == 1) {
 			CAR.nextCross = ROAD[now_road_id].from;
-			pass_cross_id = ROAD[now_road_id].to;//¸Õ¸ÕÒÑ¾­×ß¹ýµÄÂ·¿Ú
+			pass_cross_id = ROAD[now_road_id].to;//ï¿½Õ¸ï¿½ï¿½Ñ¾ï¿½ï¿½ß¹ï¿½ï¿½ï¿½Â·ï¿½ï¿½
 		}
 		link_cross = getLinkCross(CROSS[CAR.nextCross], ROAD);
-		//ÊÇ·ñ»ØÍ·µÄ±êÖ¾ÖÃÎ»
+		//ï¿½Ç·ï¿½ï¿½Í·ï¿½Ä±ï¿½Ö¾ï¿½ï¿½Î»
 		min_road_weight = MAX_NUM;
 		for (int j = 0; j < 4; j++) {
 			//back_flag[j] = false;
@@ -565,39 +565,39 @@ void Graph_DG::set_path_DealLock_back(Car &CAR, vector<Cross>& CROSS, vector<Roa
 				//back_flag[j] = true;
 				continue;
 			}
-			road_weight[j] = arc[CAR.nextCross][link_cross[j]] + dis[link_cross[j]][CAR.to];//ÕâÒ»Ð¡¶Î+ºóÃæµÄÂ·
+			road_weight[j] = arc[CAR.nextCross][link_cross[j]] + dis[link_cross[j]][CAR.to];//ï¿½ï¿½Ò»Ð¡ï¿½ï¿½+ï¿½ï¿½ï¿½ï¿½ï¿½Â·
 
-			//Ê¶±ð³ö´ú¼Û×îµÍµÄÂ·£º
+			//Ê¶ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Íµï¿½Â·ï¿½ï¿½
 			if (road_weight[j] < min_road_weight) {
 				min_road_weight = road_weight[j];
-				min_link_cross = link_cross[j];//Õâ¸ömin_link_crossÒªÃ´= -1,ÒªÃ´¾Í¿Ï¶¨ÊÇ¿ÉÒÔ×ß£¬¶øÇÒÊÇÒª×ßµÄ
+				min_link_cross = link_cross[j];//ï¿½ï¿½ï¿½min_link_crossÒªÃ´= -1,ÒªÃ´ï¿½Í¿Ï¶ï¿½ï¿½Ç¿ï¿½ï¿½ï¿½ï¿½ß£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Òªï¿½ßµï¿½
 			}
 		}
 
-		//Èç¹ûµÃ³öµÄÏÂ¸ö½áµã±¾À´¾ÍÊÇËù¹æ»®µÄÂ·¾¶£¬ÄÇ¾Í²»ÒªÐÞ¸ÄÈÎºÎÂ·¾¶ÐÅÏ¢ÁË£¬»»ÏÂÒ»Á¾³µ
+		//ï¿½ï¿½ï¿½ï¿½Ã³ï¿½ï¿½ï¿½ï¿½Â¸ï¿½ï¿½ï¿½ã±¾ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½æ»®ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½ï¿½Ç¾Í²ï¿½Òªï¿½Þ¸ï¿½ï¿½Îºï¿½Â·ï¿½ï¿½ï¿½ï¿½Ï¢ï¿½Ë£ï¿½ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½ï¿½ï¿½
 		next_road = -1;
 		next_road = CAR.route[CAR.passRoadNumber + 1];
 		flag5 = true;
 		if (min_link_cross == -1 || min_link_cross == ROAD[next_road].from || min_link_cross == ROAD[next_road].to) {
-			flag5 = false;//ÕÒµ½µÄËùÓÐÂ·¶¼È¨ÖØÌ«¸ß£¬»òÕß±¾À´¾ÍÊÇÕâÌõÂ·£¬»»ÏÂÒ»Á¾³µ
+			flag5 = false;//ï¿½Òµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½È¨ï¿½ï¿½Ì«ï¿½ß£ï¿½ï¿½ï¿½ï¿½ß±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½ï¿½ï¿½
 		}
-		/************ÕâÀï½áÊøÊÇ¼ÆËãÊÇ·ñ»ØÍ·£¬ÊÇ·ñÒª»»Â·****************/
+		/************ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ç¼ï¿½ï¿½ï¿½ï¿½Ç·ï¿½ï¿½Í·ï¿½ï¿½ï¿½Ç·ï¿½Òªï¿½ï¿½Â·****************/
 
 		if (flag5 == true) {
-			//ÖÁ´Ë£¬µÃ³öÁËÏÂÒ»²½Òª×ßµÄ½áµãÊÇmin_link_cross£¬´æµÄÊÇCROSSµÄÖ±½ÓÓÃµÄÏÂ±ê£¬È·¶¨Òª»»Â·ÁË
-		//for (iter += 1; iter != CAR[i].route.end(); ) {//É¾³ý»¹Ã»×ßµÄrounte
+			//ï¿½ï¿½ï¿½Ë£ï¿½ï¿½Ã³ï¿½ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½Òªï¿½ßµÄ½ï¿½ï¿½ï¿½ï¿½min_link_crossï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½CROSSï¿½ï¿½Ö±ï¿½ï¿½ï¿½Ãµï¿½ï¿½Â±ê£¬È·ï¿½ï¿½Òªï¿½ï¿½Â·ï¿½ï¿½
+		//for (iter += 1; iter != CAR[i].route.end(); ) {//É¾ï¿½ï¿½ï¿½ï¿½Ã»ï¿½ßµï¿½rounte
 		//	iter = CAR[i].route.erase(iter);
 		//}
 			CAR.route.erase(CAR.route.begin() + CAR.passRoadNumber + 1, CAR.route.end());
 
-			//É¾¶ÔÓ¦µÄdirection
+			//É¾ï¿½ï¿½Ó¦ï¿½ï¿½direction
 			/*for (iter = CAR[i].direction.begin() + (int)CAR[i].route.size(); iter != CAR[i].direction.end();) {
 				iter = CAR[i].direction.erase(iter);
 			}*/
 			CAR.direction.erase(CAR.direction.begin() + CAR.passRoadNumber + 1, CAR.direction.end());
 
-			//¼ÌÐø¹æ»®Ê£ÏÂµÄÂ·ÁË,ÕâÀï»¹Ã»Ð´Íê£¡£¡£¡£¡£¡£¡£¡£¡£¡
-			//²åÄ¿Ç°ÕâÒ»¶ÎÂ·£¬²»ÒªÓÃFloydµÄÍ¼ÁË£¬Ö±½Ó²å£¬·ÀÖ¹ÓÖ¿ªÊ¼ÈÆ
+			//ï¿½ï¿½ï¿½ï¿½ï¿½æ»®Ê£ï¿½Âµï¿½Â·ï¿½ï¿½,ï¿½ï¿½ï¿½ï»¹Ã»Ð´ï¿½ê£¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+			//ï¿½ï¿½Ä¿Ç°ï¿½ï¿½Ò»ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½Òªï¿½ï¿½Floydï¿½ï¿½Í¼ï¿½Ë£ï¿½Ö±ï¿½Ó²å£¬ï¿½ï¿½Ö¹ï¿½Ö¿ï¿½Ê¼ï¿½ï¿½
 			//row = CAR[i].nextCross;
 			//col = min_link_cross;
 			road_id[0] = CROSS[CAR.nextCross].road1;
@@ -615,7 +615,7 @@ void Graph_DG::set_path_DealLock_back(Car &CAR, vector<Cross>& CROSS, vector<Roa
 				}
 			}
 			if (temp_num == 4) {
-				cout << "³ö´íÀ²£¬ÕÒ²»µ½Òª×ßµÄÕâÒ»¶ÎÐ¡Â·£¡Ò»°ã²»»á³öÏÖ" << endl;
+				cout << "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ò²ï¿½ï¿½ï¿½Òªï¿½ßµï¿½ï¿½ï¿½Ò»ï¿½ï¿½Ð¡Â·ï¿½ï¿½Ò»ï¿½ã²»ï¿½ï¿½ï¿½ï¿½ï¿½" << endl;
 				//system("pause");
 				exit(1);
 			}
@@ -624,7 +624,7 @@ void Graph_DG::set_path_DealLock_back(Car &CAR, vector<Cross>& CROSS, vector<Roa
 			CAR.direction.push_back(temp_direction);
 			first_temp_road_id = temp_road_id;
 
-			//²åÊ£ÏÂµÄÂ·
+			//ï¿½ï¿½Ê£ï¿½Âµï¿½Â·
 			row = min_link_cross;
 			col = CAR.to;
 			if (row != col) {
@@ -637,16 +637,16 @@ void Graph_DG::set_path_DealLock_back(Car &CAR, vector<Cross>& CROSS, vector<Roa
 				while (temp != col) {
 					dir_temp = temp;
 
-					//ÉèÖÃ×ªÏò
+					//ï¿½ï¿½ï¿½ï¿½×ªï¿½ï¿½
 					dir_now_road_id = temp_road_id;
 
-					//ÉèÖÃÂ·¾¶
+					//ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½
 					temp_next = path[temp][col];
 					temp_road_id = map[temp][temp_next];
 					CAR.route.push_back(temp_road_id);
 					temp = temp_next;
 
-					//ÉèÖÃ×ªÏò
+					//ï¿½ï¿½ï¿½ï¿½×ªï¿½ï¿½
 					dir_next_road_id = temp_road_id;
 					temp_direction = this->findDirection(CROSS[dir_temp], dir_now_road_id, dir_next_road_id);
 					CAR.direction.push_back(temp_direction);
@@ -669,9 +669,9 @@ void Graph_DG::set_path_Dynamic(vector<Car>& CAR, vector<Cross>& CROSS, vector<R
 	int dir_now_road_id, dir_next_road_id, temp_direction, dir_temp;
 	int now_road_id;
 
-	int pass_cross_id;//¼ÌÐø×ß¹ýµÄÂ·¿Ú£¬²»ÒªµôÍ·
+	int pass_cross_id;//ï¿½ï¿½ï¿½ï¿½ï¿½ß¹ï¿½ï¿½ï¿½Â·ï¿½Ú£ï¿½ï¿½ï¿½Òªï¿½ï¿½Í·
 	vector<int> link_cross;
-	//bool back_flag[4] = { false,false,false,false };//Õâ¸ö±äÁ¿ºÃÏñÒ²Ã»É¶ÓÃ£¬µÈÏÂÉ¾ÁË
+	//bool back_flag[4] = { false,false,false,false };//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ò²Ã»É¶ï¿½Ã£ï¿½ï¿½ï¿½ï¿½ï¿½É¾ï¿½ï¿½
 	int road_weight[4] = { MAX_NUM ,MAX_NUM ,MAX_NUM ,MAX_NUM };
 	int min_road_weight = MAX_NUM;
 	int min_link_cross = -1;
@@ -681,61 +681,61 @@ void Graph_DG::set_path_Dynamic(vector<Car>& CAR, vector<Cross>& CROSS, vector<R
 	//bool is = false;
 	for (int i = 0; i < (int)CAR.size(); i++) {
 
-		if (CAR[i].usedToBeDeadCar == true) {//Ôø¾­ÊÇËÀËø³µÁ¾£¬²»Òª²ÎÓëÊµÊ±¹æ»®
+		if (CAR[i].usedToBeDeadCar == true) {//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Òªï¿½ï¿½ï¿½ï¿½ÊµÊ±ï¿½æ»®
 			continue;
 		}
-		if (CAR[i].preset == 1) {//Ô¤ÖÃ³µÁ¾Ò²²»Òª²ÎÓëÊµÊ±¹æ»®
+		if (CAR[i].preset == 1) {//Ô¤ï¿½Ã³ï¿½ï¿½ï¿½Ò²ï¿½ï¿½Òªï¿½ï¿½ï¿½ï¿½ÊµÊ±ï¿½æ»®
 			continue;
 		}
-		if (CAR[i].ATD == -1) {//Ã»³ö·¢µÄ³µ¾Í²»Òª´ÕÈÈÄÖÁË
+		if (CAR[i].ATD == -1) {//Ã»ï¿½ï¿½ï¿½ï¿½ï¿½Ä³ï¿½ï¿½Í²ï¿½Òªï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 			continue;
 		}
-		if (CAR[i].isTerminate == 1) {//µ½´ïÖÕµãµÄ³µÒ²²»Òª²ÎÓë
+		if (CAR[i].isTerminate == 1) {//ï¿½ï¿½ï¿½ï¿½ï¿½Õµï¿½Ä³ï¿½Ò²ï¿½ï¿½Òªï¿½ï¿½ï¿½ï¿½
 			continue;
 		}
-		if (CAR[i].nextCrossDistance < CAR[i].maxSpeed) {//Ö»¸ÄÄÇÐ©µ±Ç°Ê±¿Ì²»¹ýÂ·¿ÚµÄ³µ
+		if (CAR[i].nextCrossDistance < CAR[i].maxSpeed) {//Ö»ï¿½ï¿½ï¿½ï¿½Ð©ï¿½ï¿½Ç°Ê±ï¿½Ì²ï¿½ï¿½ï¿½Â·ï¿½ÚµÄ³ï¿½
 			continue;
 		}
-		if (CAR[i].passRoadNumber == (int)(CAR[i].route.size()) - 1) {//Ä¿Ç°ÕâÌõÂ·ÊÇ¸Ã³µµÄ×îºóÒ»¶ÎÂ·£¬Ò²²»Òª´ÕÈÈÄÖÁË
+		if (CAR[i].passRoadNumber == (int)(CAR[i].route.size()) - 1) {//Ä¿Ç°ï¿½ï¿½ï¿½ï¿½Â·ï¿½Ç¸Ã³ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½Â·ï¿½ï¿½Ò²ï¿½ï¿½Òªï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 			continue;
 		}
-		else if (CAR[i].passRoadNumber == (int)(CAR[i].route.size()) - 2) {//¸Ã³µµÄÏÂÒ»ÌõÂ·ÊÇÒªµ½ÖÕµã£¬Ò²²»Òª´ÕÈÈÄÖÁË
+		else if (CAR[i].passRoadNumber == (int)(CAR[i].route.size()) - 2) {//ï¿½Ã³ï¿½ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½Â·ï¿½ï¿½Òªï¿½ï¿½ï¿½Õµã£¬Ò²ï¿½ï¿½Òªï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 			continue;
 		}
-		else if (CAR[i].passRoadNumber == (int)(CAR[i].route.size()) - 3) {//¸Ã³µµÄÏÂÏÂÒ»ÌõÂ·ÊÇÒªµ½ÖÕµã£¬Ò²²»Òª´ÕÈÈÄÖÁË
+		else if (CAR[i].passRoadNumber == (int)(CAR[i].route.size()) - 3) {//ï¿½Ã³ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½Â·ï¿½ï¿½Òªï¿½ï¿½ï¿½Õµã£¬Ò²ï¿½ï¿½Òªï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 			continue;
 		}
 
 		now_road_id = CAR[i].location[0];
-		//vector<int>::iterator iter = find(CAR[i].route.begin(), CAR[i].route.end(), now_road_id); //²éÕÒ3
+		//vector<int>::iterator iter = find(CAR[i].route.begin(), CAR[i].route.end(), now_road_id); //ï¿½ï¿½ï¿½ï¿½3
 		if (CAR[i].route[CAR[i].passRoadNumber] != now_road_id) {
-			cout << "¸Ã³µÂ·¾¶ÀïÃ»ÕÒµ½Ä¿Ç°ÕâÌõÂ·£¬Ò»°ã²»»á³öÏÖ£¬³öÏÖÁËËµÃ÷³ÌÐòÃ»Ð´¶Ô" << endl;
+			cout << "ï¿½Ã³ï¿½Â·ï¿½ï¿½ï¿½ï¿½Ã»ï¿½Òµï¿½Ä¿Ç°ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½Ò»ï¿½ã²»ï¿½ï¿½ï¿½ï¿½Ö£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ëµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ã»Ð´ï¿½ï¿½" << endl;
 			//system("pause");
 			exit(1);
 		}
 		//if (iter == CAR[i].route.end()) {
-		//	cout << "Ã»ÕÒµ½£¬Ò»°ã²»»á³öÏÖ£¬³öÏÖÁËËµÃ÷³ÌÐòÃ»Ð´¶Ô" << endl;
+		//	cout << "Ã»ï¿½Òµï¿½ï¿½ï¿½Ò»ï¿½ã²»ï¿½ï¿½ï¿½ï¿½Ö£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ëµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ã»Ð´ï¿½ï¿½" << endl;
 		//	system("pause");
 		//	exit(1);
 		//}
-		//if ((iter + 1) == CAR[i].route.end()) {//Ä¿Ç°ÕâÌõÂ·ÊÇ¸Ã³µµÄ×îºóÒ»¶ÎÂ·£¬Ò²²»Òª´ÕÈÈÄÖÁË
+		//if ((iter + 1) == CAR[i].route.end()) {//Ä¿Ç°ï¿½ï¿½ï¿½ï¿½Â·ï¿½Ç¸Ã³ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½Â·ï¿½ï¿½Ò²ï¿½ï¿½Òªï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 		//	continue;
 		//}
 
 
-		/************ÕâÀï¿ªÊ¼ÊÇ¼ÆËãÊÇ·ñ»ØÍ·£¬ÊÇ·ñÒª»»Â·****************/
+		/************ï¿½ï¿½ï¿½ï¿ªÊ¼ï¿½Ç¼ï¿½ï¿½ï¿½ï¿½Ç·ï¿½ï¿½Í·ï¿½ï¿½ï¿½Ç·ï¿½Òªï¿½ï¿½Â·****************/
 		pass_cross_id = 0;
 		min_link_cross = -1;
 		if (CAR[i].isReverse == 0) {
 			CAR[i].nextCross = ROAD[now_road_id].to;
-			pass_cross_id = ROAD[now_road_id].from;//¸Õ¸ÕÒÑ¾­×ß¹ýµÄÂ·¿Ú
+			pass_cross_id = ROAD[now_road_id].from;//ï¿½Õ¸ï¿½ï¿½Ñ¾ï¿½ï¿½ß¹ï¿½ï¿½ï¿½Â·ï¿½ï¿½
 		}
 		if (CAR[i].isReverse == 1) {
 			CAR[i].nextCross = ROAD[now_road_id].from;
-			pass_cross_id = ROAD[now_road_id].to;//¸Õ¸ÕÒÑ¾­×ß¹ýµÄÂ·¿Ú
+			pass_cross_id = ROAD[now_road_id].to;//ï¿½Õ¸ï¿½ï¿½Ñ¾ï¿½ï¿½ß¹ï¿½ï¿½ï¿½Â·ï¿½ï¿½
 		}
 		link_cross = getLinkCross(CROSS[CAR[i].nextCross], ROAD);
-		//ÊÇ·ñ»ØÍ·µÄ±êÖ¾ÖÃÎ»
+		//ï¿½Ç·ï¿½ï¿½Í·ï¿½Ä±ï¿½Ö¾ï¿½ï¿½Î»
 		min_road_weight = MAX_NUM;
 		for (int j = 0; j < 4; j++) {
 			//back_flag[j] = false;
@@ -748,38 +748,38 @@ void Graph_DG::set_path_Dynamic(vector<Car>& CAR, vector<Cross>& CROSS, vector<R
 				//back_flag[j] = true;
 				continue;
 			}
-			road_weight[j] = arc[CAR[i].nextCross][link_cross[j]] + dis[link_cross[j]][CAR[i].to];//ÕâÒ»Ð¡¶Î+ºóÃæµÄÂ·
+			road_weight[j] = arc[CAR[i].nextCross][link_cross[j]] + dis[link_cross[j]][CAR[i].to];//ï¿½ï¿½Ò»Ð¡ï¿½ï¿½+ï¿½ï¿½ï¿½ï¿½ï¿½Â·
 
-			//Ê¶±ð³ö´ú¼Û×îµÍµÄÂ·£º
+			//Ê¶ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Íµï¿½Â·ï¿½ï¿½
 			if (road_weight[j] < min_road_weight) {
 				min_road_weight = road_weight[j];
-				min_link_cross = link_cross[j];//Õâ¸ömin_link_crossÒªÃ´= -1,ÒªÃ´¾Í¿Ï¶¨ÊÇ¿ÉÒÔ×ß£¬¶øÇÒÊÇÒª×ßµÄ
+				min_link_cross = link_cross[j];//ï¿½ï¿½ï¿½min_link_crossÒªÃ´= -1,ÒªÃ´ï¿½Í¿Ï¶ï¿½ï¿½Ç¿ï¿½ï¿½ï¿½ï¿½ß£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Òªï¿½ßµï¿½
 			}
 		}
 
-		//Èç¹ûµÃ³öµÄÏÂ¸ö½áµã±¾À´¾ÍÊÇËù¹æ»®µÄÂ·¾¶£¬ÄÇ¾Í²»ÒªÐÞ¸ÄÈÎºÎÂ·¾¶ÐÅÏ¢ÁË£¬»»ÏÂÒ»Á¾³µ
+		//ï¿½ï¿½ï¿½ï¿½Ã³ï¿½ï¿½ï¿½ï¿½Â¸ï¿½ï¿½ï¿½ã±¾ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½æ»®ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½ï¿½Ç¾Í²ï¿½Òªï¿½Þ¸ï¿½ï¿½Îºï¿½Â·ï¿½ï¿½ï¿½ï¿½Ï¢ï¿½Ë£ï¿½ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½ï¿½ï¿½
 		next_road = -1;
 		next_road = CAR[i].route[CAR[i].passRoadNumber + 1];
 		if (min_link_cross == -1 || min_link_cross == ROAD[next_road].from || min_link_cross == ROAD[next_road].to) {
-			continue;//ÕÒµ½µÄËùÓÐÂ·¶¼È¨ÖØÌ«¸ß£¬»òÕß±¾À´¾ÍÊÇÕâÌõÂ·£¬»»ÏÂÒ»Á¾³µ
+			continue;//ï¿½Òµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½È¨ï¿½ï¿½Ì«ï¿½ß£ï¿½ï¿½ï¿½ï¿½ß±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½ï¿½ï¿½
 		}
-		/************ÕâÀï½áÊøÊÇ¼ÆËãÊÇ·ñ»ØÍ·£¬ÊÇ·ñÒª»»Â·****************/
+		/************ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ç¼ï¿½ï¿½ï¿½ï¿½Ç·ï¿½ï¿½Í·ï¿½ï¿½ï¿½Ç·ï¿½Òªï¿½ï¿½Â·****************/
 
 
-		//ÖÁ´Ë£¬µÃ³öÁËÏÂÒ»²½Òª×ßµÄ½áµãÊÇmin_link_cross£¬´æµÄÊÇCROSSµÄÖ±½ÓÓÃµÄÏÂ±ê£¬È·¶¨Òª»»Â·ÁË
-		//for (iter += 1; iter != CAR[i].route.end(); ) {//É¾³ý»¹Ã»×ßµÄrounte
+		//ï¿½ï¿½ï¿½Ë£ï¿½ï¿½Ã³ï¿½ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½Òªï¿½ßµÄ½ï¿½ï¿½ï¿½ï¿½min_link_crossï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½CROSSï¿½ï¿½Ö±ï¿½ï¿½ï¿½Ãµï¿½ï¿½Â±ê£¬È·ï¿½ï¿½Òªï¿½ï¿½Â·ï¿½ï¿½
+		//for (iter += 1; iter != CAR[i].route.end(); ) {//É¾ï¿½ï¿½ï¿½ï¿½Ã»ï¿½ßµï¿½rounte
 		//	iter = CAR[i].route.erase(iter);
 		//}
 		CAR[i].route.erase(CAR[i].route.begin() + CAR[i].passRoadNumber + 1, CAR[i].route.end());
 
-		//É¾¶ÔÓ¦µÄdirection
+		//É¾ï¿½ï¿½Ó¦ï¿½ï¿½direction
 		/*for (iter = CAR[i].direction.begin() + (int)CAR[i].route.size(); iter != CAR[i].direction.end();) {
 			iter = CAR[i].direction.erase(iter);
 		}*/
 		CAR[i].direction.erase(CAR[i].direction.begin() + CAR[i].passRoadNumber + 1, CAR[i].direction.end());
 
-		//¼ÌÐø¹æ»®Ê£ÏÂµÄÂ·ÁË,ÕâÀï»¹Ã»Ð´Íê£¡£¡£¡£¡£¡£¡£¡£¡£¡
-		//²åÄ¿Ç°ÕâÒ»¶ÎÂ·£¬²»ÒªÓÃFloydµÄÍ¼ÁË£¬Ö±½Ó²å£¬·ÀÖ¹ÓÖ¿ªÊ¼ÈÆ
+		//ï¿½ï¿½ï¿½ï¿½ï¿½æ»®Ê£ï¿½Âµï¿½Â·ï¿½ï¿½,ï¿½ï¿½ï¿½ï»¹Ã»Ð´ï¿½ê£¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+		//ï¿½ï¿½Ä¿Ç°ï¿½ï¿½Ò»ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½Òªï¿½ï¿½Floydï¿½ï¿½Í¼ï¿½Ë£ï¿½Ö±ï¿½Ó²å£¬ï¿½ï¿½Ö¹ï¿½Ö¿ï¿½Ê¼ï¿½ï¿½
 		//row = CAR[i].nextCross;
 		//col = min_link_cross;
 		road_id[0] = CROSS[CAR[i].nextCross].road1;
@@ -797,7 +797,7 @@ void Graph_DG::set_path_Dynamic(vector<Car>& CAR, vector<Cross>& CROSS, vector<R
 			}
 		}
 		if (temp_num == 4) {
-			cout << "³ö´íÀ²£¬ÕÒ²»µ½Òª×ßµÄÕâÒ»¶ÎÐ¡Â·£¡Ò»°ã²»»á³öÏÖ" << endl;
+			cout << "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ò²ï¿½ï¿½ï¿½Òªï¿½ßµï¿½ï¿½ï¿½Ò»ï¿½ï¿½Ð¡Â·ï¿½ï¿½Ò»ï¿½ã²»ï¿½ï¿½ï¿½ï¿½ï¿½" << endl;
 			//system("pause");
 			exit(1);
 		}
@@ -806,11 +806,11 @@ void Graph_DG::set_path_Dynamic(vector<Car>& CAR, vector<Cross>& CROSS, vector<R
 		CAR[i].direction.push_back(temp_direction);
 		first_temp_road_id = temp_road_id;
 
-		//²åÊ£ÏÂµÄÂ·
+		//ï¿½ï¿½Ê£ï¿½Âµï¿½Â·
 		row = min_link_cross;
 		col = CAR[i].to;
-		if (row == col) {//ÒÑ¾­µ½ÁË°¡£¬¶øÇÒÒÑ¾­²åÍê×îºóÒ»ÌõÂ·ÁË£¬ÏÂÃæ²»ÐèÒª¼ÌÐøÁË£¬»»ÏÂÒ»Á¾³µ
-			//cout << "Ò»°ã²»»á³öÏÖ123123123" << endl;
+		if (row == col) {//ï¿½Ñ¾ï¿½ï¿½ï¿½ï¿½Ë°ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ñ¾ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½Â·ï¿½Ë£ï¿½ï¿½ï¿½ï¿½æ²»ï¿½ï¿½Òªï¿½ï¿½ï¿½ï¿½ï¿½Ë£ï¿½ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½ï¿½ï¿½
+			//cout << "Ò»ï¿½ã²»ï¿½ï¿½ï¿½ï¿½ï¿½123123123" << endl;
 			//system("pause");
 			//exit(1);
 			continue;
@@ -824,16 +824,16 @@ void Graph_DG::set_path_Dynamic(vector<Car>& CAR, vector<Cross>& CROSS, vector<R
 		while (temp != col) {
 			dir_temp = temp;
 
-			//ÉèÖÃ×ªÏò
+			//ï¿½ï¿½ï¿½ï¿½×ªï¿½ï¿½
 			dir_now_road_id = temp_road_id;
 
-			//ÉèÖÃÂ·¾¶
+			//ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½
 			temp_next = path[temp][col];
 			temp_road_id = map[temp][temp_next];
 			CAR[i].route.push_back(temp_road_id);
 			temp = temp_next;
 
-			//ÉèÖÃ×ªÏò
+			//ï¿½ï¿½ï¿½ï¿½×ªï¿½ï¿½
 			dir_next_road_id = temp_road_id;
 			temp_direction = this->findDirection(CROSS[dir_temp], dir_now_road_id, dir_next_road_id);
 			CAR[i].direction.push_back(temp_direction);
@@ -860,7 +860,7 @@ int Graph_DG::findDirection(Cross &CROSS, int now_road_id, int next_road_id) {
 		}
 	}
 	if (k == 4) {
-		cout << "³ö´íÀ²£¬Õâ¸öÂ·¿ÚÕÒ²»µ½Ä¿Ç°ËùÔÚµÄÂ·£¡Ò»°ã²»»á³öÏÖ" << endl;
+		cout << "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ï¿½Ò²ï¿½ï¿½ï¿½Ä¿Ç°ï¿½ï¿½ï¿½Úµï¿½Â·ï¿½ï¿½Ò»ï¿½ã²»ï¿½ï¿½ï¿½ï¿½ï¿½" << endl;
 		//system("pause");
 		exit(1);
 	}
@@ -871,35 +871,35 @@ int Graph_DG::findDirection(Cross &CROSS, int now_road_id, int next_road_id) {
 		}
 	}
 	if (k == 4) {
-		cout << "³ö´íÀ²£¬Õâ¸öÂ·¿ÚÕÒ²»µ½ÏÂÒ»ÌõÂ·£¡Ò»°ã²»»á³öÏÖ" << endl;
+		cout << "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ï¿½Ò²ï¿½ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½Â·ï¿½ï¿½Ò»ï¿½ã²»ï¿½ï¿½ï¿½ï¿½ï¿½" << endl;
 		//system("pause");
 		exit(1);
 	}
 	err = next_road_direction - now_road_direction;
 
-	//ÉèÖÃ×ªÏòÐÅÏ¢£¬Èç¹ûË³Ê±Õë1£¬¾ÍÊÇ×ó×ª£»Èç¹ûÄæÊ±Õë-1£¬¾ÍÊÇÓÒ×ª£»Èç¹ûÏà²î2¾ÍÊÇÖ±ÐÐ
+	//ï¿½ï¿½ï¿½ï¿½×ªï¿½ï¿½ï¿½ï¿½Ï¢ï¿½ï¿½ï¿½ï¿½ï¿½Ë³Ê±ï¿½ï¿½1ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½×ªï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½-1ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½×ªï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½2ï¿½ï¿½ï¿½ï¿½Ö±ï¿½ï¿½
 	switch (err)
 	{
-	case 1:		//×ó×ª
+	case 1:		//ï¿½ï¿½×ª
 		return(1);
 		break;
-	case -3:	//×ó×ª
+	case -3:	//ï¿½ï¿½×ª
 		return(1);
 		break;
-	case -1:	//ÓÒ×ª
+	case -1:	//ï¿½ï¿½×ª
 		return(2);
 		break;
-	case 3:		//ÓÒ×ª
+	case 3:		//ï¿½ï¿½×ª
 		return(2);
 		break;
-	case 2:		//Ö±ÐÐ
+	case 2:		//Ö±ï¿½ï¿½
 		return(0);
 		break;
-	case -2:	//Ö±ÐÐ
+	case -2:	//Ö±ï¿½ï¿½
 		return(0);
 		break;
 	default:
-		cout << "³öÏÖÁËµôÍ·µÄÏÖÏó£¬²»ÔÊÐí³öÏÖ£¡" << endl;
+		cout << "ï¿½ï¿½ï¿½ï¿½ï¿½Ëµï¿½Í·ï¿½ï¿½ï¿½ï¿½ï¿½ó£¬²ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö£ï¿½" << endl;
 		//system("pause");
 		break;
 	}
@@ -924,7 +924,7 @@ vector<int> Graph_DG::getLinkCross(Cross &CROSS, vector<Road> &ROAD) {
 		else if (ROAD[road_id[j]].to == CROSS.id && ROAD[road_id[j]].isDuplex == 1) {
 			link_cross.push_back(ROAD[road_id[j]].from);
 		}
-		else {//ÓÐÁ¬½ÓµÄ£¬µ«ÊÇÊÇµ¥ÏòµÀ£¬×ß²»¹ýÈ¥µÄ£¬ËùÒÔ»¹ÊÇ-1
+		else {//ï¿½ï¿½ï¿½ï¿½ï¿½ÓµÄ£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Çµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ß²ï¿½ï¿½ï¿½È¥ï¿½Ä£ï¿½ï¿½ï¿½ï¿½Ô»ï¿½ï¿½ï¿½-1
 			link_cross.push_back(-1);
 		}
 	}
@@ -954,7 +954,7 @@ void Graph_DG::set_out_road(vector<Car>& CAR, vector<Cross>& CROSS) {
 	}
 }
 
-//´øËÀËø´¦ÀíÊ±£¬Ö»¸üÐÂ¶ÔÓ¦µÄ³µ£¬²»ÐèÒªÈ«²¿¸üÐÂ
+//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½Ö»ï¿½ï¿½ï¿½Â¶ï¿½Ó¦ï¿½Ä³ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ÒªÈ«ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 void Graph_DG::set_out_road_DealLock(Car &CAR, vector<Cross>& CROSS) {
 	int road_id[4] = { -1,-1,-1,-1 };
 	int last_roadId;
@@ -979,8 +979,8 @@ void Graph_DG::set_out_road_DealLock(Car &CAR, vector<Cross>& CROSS) {
 
 void Graph_DG::initRoute(vector<Car> &CAR, vector<Cross> &CROSS, vector<Road> &ROAD)
 {
-	//Graph_DG graph(CROSS.size(), edge);//Î´¿¼ÂÇ³µµÀÊý£¬ºóÆÚÒª¼ÓÉÏ£¬ÁíÍâ£¬»á²»»áÁ½¸öÂ·¿ÚÖ®¼äÓÐÁ½ÌõÂ·µÄÌØÊâÇé¿ö£¿
-	this->createGraph(1, ROAD, (int)(ROAD.size()));//1´ú±íÓÐÏòÍ¼£¬2´ú±íÎÞÏòÍ¼
+	//Graph_DG graph(CROSS.size(), edge);//Î´ï¿½ï¿½ï¿½Ç³ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Òªï¿½ï¿½ï¿½Ï£ï¿½ï¿½ï¿½ï¿½â£¬ï¿½á²»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½Ö®ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	this->createGraph(1, ROAD, (int)(ROAD.size()));//1ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í¼ï¿½ï¿½2ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í¼
 	this->Floyd();
 	this->set_path(CAR, CROSS, ROAD, (int)(CAR.size()));
 	this->set_out_road(CAR, CROSS);
@@ -992,19 +992,19 @@ void Graph_DG::initRoute_DealLock(Car &DeadCar, vector<Cross> &CROSS, vector<Roa
 	int err_road_id, temp_from, temp_to;
 	int change_flag;
 	vector<int>::iterator it;
-	if (DeadCar.nextRoad != -1) {	//¿¼ÂÇÏÂÒ»ÌõÂ·ÊÇ²»»á×ßµÄÇé¿ö£¨¼´¹ýÁËÖÕµãÖ®ºóµÄÂ·£©
+	if (DeadCar.nextRoad != -1) {	//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½Â·ï¿½Ç²ï¿½ï¿½ï¿½ï¿½ßµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Õµï¿½Ö®ï¿½ï¿½ï¿½Â·ï¿½ï¿½
 
-		//¶¯Ì¬¹æ»®Ê±ÓÃµ½£¬Èç¹ûÊÇËÀËø³µÁ¾£¬Ôò²»Òª²ÎÓëÊµÊ±µ÷¶È£¬Õâ¸ö°æ±¾Ã»ÓÃµ½
+		//ï¿½ï¿½Ì¬ï¿½æ»®Ê±ï¿½Ãµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Òªï¿½ï¿½ï¿½ï¿½ÊµÊ±ï¿½ï¿½ï¿½È£ï¿½ï¿½ï¿½ï¿½ï¿½æ±¾Ã»ï¿½Ãµï¿½
 		DeadCar.usedToBeDeadCar = true;
 
-		err_road_id = DeadCar.location[0] - ROAD[0].id;//ËùÔÚÂ·µÄid
+		err_road_id = DeadCar.location[0] - ROAD[0].id;//ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½id
 		temp_from = ROAD[err_road_id].from+1;
 		temp_to = ROAD[err_road_id].to+1;
 
 		change_flag = 0;
 		for (int k = 0; k < (int)(freeRoads.size()); k++) {
-			if (DeadCar.location[0] == freeRoads[k]) {//ËÀËø³µÄ¿Ç°ËùÔÚµÄÂ·Ò²ÊÇ³µÁ÷Á¿ÉÙµÄÂ·£¡
-				//cout << "Ä¿Ç°ËÀËøµÄÂ·Ò²ÊÇ³µÁ÷Á¿ÉÙµÄÂ·£¡" << endl;
+			if (DeadCar.location[0] == freeRoads[k]) {//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä¿Ç°ï¿½ï¿½ï¿½Úµï¿½Â·Ò²ï¿½Ç³ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ùµï¿½Â·ï¿½ï¿½
+				//cout << "Ä¿Ç°ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Â·Ò²ï¿½Ç³ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ùµï¿½Â·ï¿½ï¿½" << endl;
 				//system("pause");
 				if (DeadCar.PT -= err_road_id + 2 * DeadCar.location[2] > DeadCar.planTime) {
 					DeadCar.PT -= err_road_id + 2 * DeadCar.location[2];
@@ -1019,7 +1019,7 @@ void Graph_DG::initRoute_DealLock(Car &DeadCar, vector<Cross> &CROSS, vector<Roa
 			}
 		}
 
-		if (change_flag == 0) {//ËÀËø³µÄ¿Ç°ËùÔÚµÄÂ·²»ÊÇ³µÁ÷Á¿ÉÙµÄÂ·£¬É¾ÁËÕâÌõÂ·
+		if (change_flag == 0) {//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä¿Ç°ï¿½ï¿½ï¿½Úµï¿½Â·ï¿½ï¿½ï¿½Ç³ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ùµï¿½Â·ï¿½ï¿½É¾ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Â·
 			if (ROAD[err_road_id].to == DeadCar.nextCross) {
 				arc[temp_from - 1][temp_to - 1] = 999;
 				//map[temp_from - 1][temp_to - 1] = -1;
@@ -1029,8 +1029,8 @@ void Graph_DG::initRoute_DealLock(Car &DeadCar, vector<Cross> &CROSS, vector<Roa
 				//map[temp_to - 1][temp_from - 1] = -1;
 			}
 
-			//Ë³±ã°ÑÆäËû³µÁ÷Á¿ÉÙµÄÂ·½µµÍÈ¨ÖØ
-			//cout << "³µÁ÷Á¿ÉÙµÄµÀÂ·£º" << endl;
+			//Ë³ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ùµï¿½Â·ï¿½ï¿½ï¿½ï¿½È¨ï¿½ï¿½
+			//cout << "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ÙµÄµï¿½Â·ï¿½ï¿½" << endl;
 			for (int i = 0; i < (int)(freeRoads.size()); i++) {
 				err_road_id = freeRoads[i] - ROAD[0].id;
 
@@ -1047,8 +1047,8 @@ void Graph_DG::initRoute_DealLock(Car &DeadCar, vector<Cross> &CROSS, vector<Roa
 					arc[temp_to - 1][temp_from - 1] = 5;
 				}
 			}
-			//Ë³±ã°ÑÆäËû³µÁ÷Á¿¶àµÄÂ·Éè¸ßÈ¨ÖØ
-			//cout << "³µÁ÷Á¿¸ßµÄµÀÂ·£º" << endl;
+			//Ë³ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ï¿½È¨ï¿½ï¿½
+			//cout << "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ßµÄµï¿½Â·ï¿½ï¿½" << endl;
 			for (int i = 0; i < (int)(busyRoads.size()); i++) {
 				err_road_id = busyRoads[i] - ROAD[0].id;
 				temp_from = ROAD[err_road_id].from+1;
@@ -1069,10 +1069,10 @@ void Graph_DG::initRoute_DealLock(Car &DeadCar, vector<Cross> &CROSS, vector<Roa
 void Graph_DG::initRoute_DealLock_back(Car &DeadCar, vector<Cross> &CROSS, vector<Road> &ROAD, vector<int> &freeRoads, vector<int> &busyRoads, vector<int> &CROSSID)
 {
 	int err_road_id, temp_from, temp_to;
-	//»Ø¹öÊ±£¬ËÀËø³µÁ¾Ò²²»Òª²ÎÓëÊµÊ±µ÷¶ÈÁË£¬ÅÂÓÖ×ß»ØÈ¥ÁË
+	//ï¿½Ø¹ï¿½Ê±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ò²ï¿½ï¿½Òªï¿½ï¿½ï¿½ï¿½ÊµÊ±ï¿½ï¿½ï¿½ï¿½ï¿½Ë£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ß»ï¿½È¥ï¿½ï¿½
 	DeadCar.usedToBeDeadCar = true;
 
-	err_road_id = DeadCar.nextRoad - ROAD[0].id;//ÏÂÒ»ÌõÂ·µÄid
+	err_road_id = DeadCar.nextRoad - ROAD[0].id;//ï¿½ï¿½Ò»ï¿½ï¿½Â·ï¿½ï¿½id
 	temp_from = ROAD[err_road_id].from + 1;
 	temp_to = ROAD[err_road_id].to + 1;
 
@@ -1085,12 +1085,12 @@ void Graph_DG::initRoute_DealLock_back(Car &DeadCar, vector<Cross> &CROSS, vecto
 		//map[temp_to - 1][temp_from - 1] = -1;
 	}
 
-	//¶Ô²»Í¬Óµ¼·¶ÈµÄÂ·×ö²»Í¬µÄÈ¨ÖØ¼Ó¼õ£¬ÕâÀïµÄÈ¨ÖØ²ÎÊýÐèÒª½øÒ»²½ÑéÖ¤ºÏÀíÐÔ
+	//ï¿½Ô²ï¿½Í¬Óµï¿½ï¿½ï¿½Èµï¿½Â·ï¿½ï¿½ï¿½ï¿½Í¬ï¿½ï¿½È¨ï¿½Ø¼Ó¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È¨ï¿½Ø²ï¿½ï¿½ï¿½ï¿½ï¿½Òªï¿½ï¿½Ò»ï¿½ï¿½ï¿½ï¿½Ö¤ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	for (int i = 0; i < (int)(ROAD.size()); i++) {
 		temp_from = ROAD[i].from + 1;
 		temp_to = ROAD[i].to + 1;
 		for (int m = 0; m < ROAD[i].isDuplex + 1; m++) {
-			if (m == 0) {//ÕýÏò
+			if (m == 0) {//ï¿½ï¿½ï¿½ï¿½
 				if (ROAD[i].crowding[m] < Lower_Bound) {
 					if (arc[temp_from - 1][temp_to - 1] > 10) {
 						arc[temp_from - 1][temp_to - 1] -= 10;
@@ -1103,7 +1103,7 @@ void Graph_DG::initRoute_DealLock_back(Car &DeadCar, vector<Cross> &CROSS, vecto
 					arc[temp_from - 1][temp_to - 1] += 50;
 				}
 			}
-			else if (m == 1) {//·´Ïò
+			else if (m == 1) {//ï¿½ï¿½ï¿½ï¿½
 				if (ROAD[i].crowding[m] < Lower_Bound) {
 					if (arc[temp_to - 1][temp_from - 1] > 10) {
 						arc[temp_to - 1][temp_from - 1] -= 10;
@@ -1127,50 +1127,50 @@ void Graph_DG::initRoute_DealLock_back(Car &DeadCar, vector<Cross> &CROSS, vecto
 void Graph_DG::initRoute_DealLock_back2(Car &DeadCar, vector<Cross> &CROSS, vector<Road> &ROAD)
 {
 	int err_road_id, temp_from, temp_to;
-	//»Ø¹öÊ±£¬ËÀËø³µÁ¾Ò²²»Òª²ÎÓëÊµÊ±µ÷¶ÈÁË£¬ÅÂÓÖ×ß»ØÈ¥ÁË
+	//ï¿½Ø¹ï¿½Ê±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ò²ï¿½ï¿½Òªï¿½ï¿½ï¿½ï¿½ÊµÊ±ï¿½ï¿½ï¿½ï¿½ï¿½Ë£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ß»ï¿½È¥ï¿½ï¿½
 	DeadCar.usedToBeDeadCar = true;
 
 	for (int i = 0; i < (int)(DeadCar.deadRoadId.size()); i++) {
-		err_road_id = DeadCar.deadRoadId[i];//ËÀËøÊ±µÄÂ·²»×ß
+		err_road_id = DeadCar.deadRoadId[i];//ï¿½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½
 		temp_from = ROAD[err_road_id].from + 1;
 		temp_to = ROAD[err_road_id].to + 1;
 		arc[temp_from - 1][temp_to - 1] += 30;
-		if (ROAD[err_road_id].isDuplex == 1) {//ÕâÀïÀÁµÃÈ¥¼ÆËãÕý·´ÏòÁË£¬·´Õý¾ÍÊÇ²»×ßÁË
+		if (ROAD[err_road_id].isDuplex == 1) {//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È¥ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ë£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ç²ï¿½ï¿½ï¿½ï¿½ï¿½
 			arc[temp_to - 1][temp_from - 1] += 30;
 		}
 	}
 
-	//err_road_id = DeadCar.deadInRoadId;//ËÀËøÊ±µÄÂ·
+	//err_road_id = DeadCar.deadInRoadId;//ï¿½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½Â·
 	//temp_from = ROAD[err_road_id].from + 1;
 	//temp_to = ROAD[err_road_id].to + 1;
 	//arc[temp_from - 1][temp_to - 1] = 999;
-	//if (ROAD[err_road_id].isDuplex == 1) {//ÕâÀïÀÁµÃÈ¥¼ÆËãÕý·´ÏòÁË£¬·´Õý¾ÍÊÇ²»×ßÁË
+	//if (ROAD[err_road_id].isDuplex == 1) {//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È¥ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ë£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ç²ï¿½ï¿½ï¿½ï¿½ï¿½
 	//	arc[temp_to - 1][temp_from - 1] = 999;
 	//}
 
-	//err_road_id = DeadCar.deadInRoadId_next;//ËÀËøÊ±µÄÏÂÒ»ÌõÂ·
+	//err_road_id = DeadCar.deadInRoadId_next;//ï¿½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½Â·
 	//temp_from = ROAD[err_road_id].from + 1;
 	//temp_to = ROAD[err_road_id].to + 1;
 	//arc[temp_from - 1][temp_to - 1] = 999;
-	//if (ROAD[err_road_id].isDuplex == 1) {//ÕâÀïÀÁµÃÈ¥¼ÆËãÕý·´ÏòÁË£¬·´Õý¾ÍÊÇ²»×ßÁË
+	//if (ROAD[err_road_id].isDuplex == 1) {//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È¥ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ë£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ç²ï¿½ï¿½ï¿½ï¿½ï¿½
 	//	arc[temp_to - 1][temp_from - 1] = 999;
 	//}
 
-	err_road_id = DeadCar.nextRoad;//ÏÂÒ»ÌõÂ·
+	err_road_id = DeadCar.nextRoad;//ï¿½ï¿½Ò»ï¿½ï¿½Â·
 	temp_from = ROAD[err_road_id].from + 1;
 	temp_to = ROAD[err_road_id].to + 1;
 	arc[temp_from - 1][temp_to - 1] += 10;
-	if (ROAD[err_road_id].isDuplex == 1) {//ÕâÀïÀÁµÃÈ¥¼ÆËãÕý·´ÏòÁË£¬·´Õý¾ÍÊÇ¼Ó¸ßÈ¨ÖØÁË
+	if (ROAD[err_road_id].isDuplex == 1) {//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È¥ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ë£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ç¼Ó¸ï¿½È¨ï¿½ï¿½ï¿½ï¿½
 		arc[temp_to - 1][temp_from - 1] += 10;
 	}
 
 
-	//¶Ô²»Í¬Óµ¼·¶ÈµÄÂ·×ö²»Í¬µÄÈ¨ÖØ¼Ó¼õ£¬ÕâÀïµÄÈ¨ÖØ²ÎÊýÐèÒª½øÒ»²½ÑéÖ¤ºÏÀíÐÔ
+	//ï¿½Ô²ï¿½Í¬Óµï¿½ï¿½ï¿½Èµï¿½Â·ï¿½ï¿½ï¿½ï¿½Í¬ï¿½ï¿½È¨ï¿½Ø¼Ó¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È¨ï¿½Ø²ï¿½ï¿½ï¿½ï¿½ï¿½Òªï¿½ï¿½Ò»ï¿½ï¿½ï¿½ï¿½Ö¤ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	for (int i = 0; i < (int)(ROAD.size()); i++) {
 		temp_from = ROAD[i].from + 1;
 		temp_to = ROAD[i].to + 1;
 		for (int m = 0; m < ROAD[i].isDuplex + 1; m++) {
-			if (m == 0) {//ÕýÏò
+			if (m == 0) {//ï¿½ï¿½ï¿½ï¿½
 				if (ROAD[i].crowding[m] < Lower_Bound) {
 					if (arc[temp_from - 1][temp_to - 1] > 10) {
 						arc[temp_from - 1][temp_to - 1] -= 10;
@@ -1183,7 +1183,7 @@ void Graph_DG::initRoute_DealLock_back2(Car &DeadCar, vector<Cross> &CROSS, vect
 					arc[temp_from - 1][temp_to - 1] += 50;
 				}
 			}
-			else if (m == 1) {//·´Ïò
+			else if (m == 1) {//ï¿½ï¿½ï¿½ï¿½
 				if (ROAD[i].crowding[m] < Lower_Bound) {
 					if (arc[temp_to - 1][temp_from - 1] > 10) {
 						arc[temp_to - 1][temp_from - 1] -= 10;
@@ -1204,57 +1204,57 @@ void Graph_DG::initRoute_DealLock_back2(Car &DeadCar, vector<Cross> &CROSS, vect
 	this->set_out_road_DealLock(DeadCar, CROSS);
 }
 
-//È«¾Ö½û¼É
+//È«ï¿½Ö½ï¿½ï¿½ï¿½
 void Graph_DG::initRoute_DealLock_back3(Car &DeadCar, vector<Cross> &CROSS, vector<Road> &ROAD, vector<int> &CarDeadRoadId)
 {
 	int err_road_id, temp_from, temp_to;
-	//»Ø¹öÊ±£¬ËÀËø³µÁ¾Ò²²»Òª²ÎÓëÊµÊ±µ÷¶ÈÁË£¬ÅÂÓÖ×ß»ØÈ¥ÁË//µÈµÈ
+	//ï¿½Ø¹ï¿½Ê±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ò²ï¿½ï¿½Òªï¿½ï¿½ï¿½ï¿½ÊµÊ±ï¿½ï¿½ï¿½ï¿½ï¿½Ë£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ß»ï¿½È¥ï¿½ï¿½//ï¿½Èµï¿½
 	DeadCar.usedToBeDeadCar = true;
 
 	//if (CarDeadRoadId.size() > 3) {
-	//	cout << "ËÀËø³¬¹ý3´Î£¬ÔÚ²»Í¬Â·»òÍ¬Â·" << endl;
+	//	cout << "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½3ï¿½Î£ï¿½ï¿½Ú²ï¿½Í¬Â·ï¿½ï¿½Í¬Â·" << endl;
 	//}
 	for (int i = 0; i < (int)(CarDeadRoadId.size()); i++) {
-		err_road_id = CarDeadRoadId[i];//ËÀËøÊ±µÄÂ·²»×ß
+		err_road_id = CarDeadRoadId[i];//ï¿½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½
 		temp_from = ROAD[err_road_id].from + 1;
 		temp_to = ROAD[err_road_id].to + 1;
 		arc[temp_from - 1][temp_to - 1] += 30;
-		if (ROAD[err_road_id].isDuplex == 1) {//ÕâÀïÀÁµÃÈ¥¼ÆËãÕý·´ÏòÁË£¬·´Õý¾ÍÊÇ²»×ßÁË
+		if (ROAD[err_road_id].isDuplex == 1) {//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È¥ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ë£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ç²ï¿½ï¿½ï¿½ï¿½ï¿½
 			arc[temp_to - 1][temp_from - 1] += 30;
 		}
 	}
 
-	//err_road_id = DeadCar.deadInRoadId;//ËÀËøÊ±µÄÂ·
+	//err_road_id = DeadCar.deadInRoadId;//ï¿½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½Â·
 	//temp_from = ROAD[err_road_id].from + 1;
 	//temp_to = ROAD[err_road_id].to + 1;
 	//arc[temp_from - 1][temp_to - 1] = 999;
-	//if (ROAD[err_road_id].isDuplex == 1) {//ÕâÀïÀÁµÃÈ¥¼ÆËãÕý·´ÏòÁË£¬·´Õý¾ÍÊÇ²»×ßÁË
+	//if (ROAD[err_road_id].isDuplex == 1) {//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È¥ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ë£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ç²ï¿½ï¿½ï¿½ï¿½ï¿½
 	//	arc[temp_to - 1][temp_from - 1] = 999;
 	//}
 
-	//err_road_id = DeadCar.deadInRoadId_next;//ËÀËøÊ±µÄÏÂÒ»ÌõÂ·
+	//err_road_id = DeadCar.deadInRoadId_next;//ï¿½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½Â·
 	//temp_from = ROAD[err_road_id].from + 1;
 	//temp_to = ROAD[err_road_id].to + 1;
 	//arc[temp_from - 1][temp_to - 1] = 999;
-	//if (ROAD[err_road_id].isDuplex == 1) {//ÕâÀïÀÁµÃÈ¥¼ÆËãÕý·´ÏòÁË£¬·´Õý¾ÍÊÇ²»×ßÁË
+	//if (ROAD[err_road_id].isDuplex == 1) {//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È¥ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ë£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ç²ï¿½ï¿½ï¿½ï¿½ï¿½
 	//	arc[temp_to - 1][temp_from - 1] = 999;
 	//}
 
-	//err_road_id = DeadCar.nextRoad;//ÏÂÒ»ÌõÂ·
+	//err_road_id = DeadCar.nextRoad;//ï¿½ï¿½Ò»ï¿½ï¿½Â·
 	//temp_from = ROAD[err_road_id].from + 1;
 	//temp_to = ROAD[err_road_id].to + 1;
 	//arc[temp_from - 1][temp_to - 1] += 10;
-	//if (ROAD[err_road_id].isDuplex == 1) {//ÕâÀïÀÁµÃÈ¥¼ÆËãÕý·´ÏòÁË£¬·´Õý¾ÍÊÇ¼Ó¸ßÈ¨ÖØÁË
+	//if (ROAD[err_road_id].isDuplex == 1) {//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È¥ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ë£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ç¼Ó¸ï¿½È¨ï¿½ï¿½ï¿½ï¿½
 	//	arc[temp_to - 1][temp_from - 1] += 10;
 	//}
 
 
-	//¶Ô²»Í¬Óµ¼·¶ÈµÄÂ·×ö²»Í¬µÄÈ¨ÖØ¼Ó¼õ£¬ÕâÀïµÄÈ¨ÖØ²ÎÊýÐèÒª½øÒ»²½ÑéÖ¤ºÏÀíÐÔ
+	//ï¿½Ô²ï¿½Í¬Óµï¿½ï¿½ï¿½Èµï¿½Â·ï¿½ï¿½ï¿½ï¿½Í¬ï¿½ï¿½È¨ï¿½Ø¼Ó¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È¨ï¿½Ø²ï¿½ï¿½ï¿½ï¿½ï¿½Òªï¿½ï¿½Ò»ï¿½ï¿½ï¿½ï¿½Ö¤ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	for (int i = 0; i < (int)(ROAD.size()); i++) {
 		temp_from = ROAD[i].from + 1;
 		temp_to = ROAD[i].to + 1;
 		for (int m = 0; m < ROAD[i].isDuplex + 1; m++) {
-			if (m == 0) {//ÕýÏò
+			if (m == 0) {//ï¿½ï¿½ï¿½ï¿½
 				if (ROAD[i].crowding[m] < Lower_Bound) {
 					if (arc[temp_from - 1][temp_to - 1] > 10) {
 						arc[temp_from - 1][temp_to - 1] -= 10;
@@ -1267,7 +1267,7 @@ void Graph_DG::initRoute_DealLock_back3(Car &DeadCar, vector<Cross> &CROSS, vect
 					arc[temp_from - 1][temp_to - 1] += 50;
 				}
 			}
-			else if (m == 1) {//·´Ïò
+			else if (m == 1) {//ï¿½ï¿½ï¿½ï¿½
 				if (ROAD[i].crowding[m] < Lower_Bound) {
 					if (arc[temp_to - 1][temp_from - 1] > 10) {
 						arc[temp_to - 1][temp_from - 1] -= 10;
@@ -1292,7 +1292,7 @@ void Graph_DG::initRoute_Dynamic(vector<Car> &CAR, vector<Cross> &CROSS, vector<
 
 	int temp_from, temp_to;
 
-	//¶Ô²»Í¬Óµ¼·¶ÈµÄÂ·×ö²»Í¬µÄÈ¨ÖØ¼Ó¼õ£¬ÕâÀïµÄÈ¨ÖØ²ÎÊýÐèÒª½øÒ»²½ÑéÖ¤ºÏÀíÐÔ
+	//ï¿½Ô²ï¿½Í¬Óµï¿½ï¿½ï¿½Èµï¿½Â·ï¿½ï¿½ï¿½ï¿½Í¬ï¿½ï¿½È¨ï¿½Ø¼Ó¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È¨ï¿½Ø²ï¿½ï¿½ï¿½ï¿½ï¿½Òªï¿½ï¿½Ò»ï¿½ï¿½ï¿½ï¿½Ö¤ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	for (int i = 0; i < (int)(ROAD.size()); i++) {
 		temp_from = ROAD[i].from + 1;
 		temp_to = ROAD[i].to + 1;
@@ -1300,7 +1300,7 @@ void Graph_DG::initRoute_Dynamic(vector<Car> &CAR, vector<Cross> &CROSS, vector<
 		//arc[temp_from - 1][temp_to - 1] += 10 * ROAD[i].crowding[0];
 		//arc[temp_to - 1][temp_from - 1] += 10 * ROAD[i].crowding[1];
 		for (int m = 0; m < ROAD[i].isDuplex + 1; m++) {
-			if (m == 0) {//ÕýÏò
+			if (m == 0) {//ï¿½ï¿½ï¿½ï¿½
 				if (ROAD[i].crowding[m] < Lower_Bound) {
 					if (arc[temp_from - 1][temp_to - 1] > 20) {
 						arc[temp_from - 1][temp_to - 1] -= 20;
@@ -1313,7 +1313,7 @@ void Graph_DG::initRoute_Dynamic(vector<Car> &CAR, vector<Cross> &CROSS, vector<
 					arc[temp_from - 1][temp_to - 1] += 50;
 				}
 			}
-			else if (m == 1) {//·´Ïò
+			else if (m == 1) {//ï¿½ï¿½ï¿½ï¿½
 				if (ROAD[i].crowding[m] < Lower_Bound) {
 					if (arc[temp_to - 1][temp_from - 1] > 20) {
 						arc[temp_to - 1][temp_from - 1] -= 20;
@@ -1330,7 +1330,7 @@ void Graph_DG::initRoute_Dynamic(vector<Car> &CAR, vector<Cross> &CROSS, vector<
 	}
 
 	this->Floyd();
-	this->set_path_Dynamic(CAR, CROSS, ROAD);//ÕâÀïÖ»setºóÃæµÄÂ·£¬Ç°ÃæÒÑ¾­×ß¹ýµÄÂ·²»ÄÜÅö£¬Èç¹û²»Óµ¼·£¬Ö±½Ó²»ÓÃset
-	this->set_out_road(CAR, CROSS);//ÕâÀï²»ÐèÒªÃ¿´Î¶¼½øÐÐ¼ÆËã£¬Ö»ÔÚ×îºóÒ»´Î¼ÆËã¾Í¿ÉÒÔÁË£¬µÈÏÂ¸Ä
+	this->set_path_Dynamic(CAR, CROSS, ROAD);//ï¿½ï¿½ï¿½ï¿½Ö»setï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½Ç°ï¿½ï¿½ï¿½Ñ¾ï¿½ï¿½ß¹ï¿½ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Óµï¿½ï¿½ï¿½ï¿½Ö±ï¿½Ó²ï¿½ï¿½ï¿½set
+	this->set_out_road(CAR, CROSS);//ï¿½ï¿½ï¿½ï²»ï¿½ï¿½ÒªÃ¿ï¿½Î¶ï¿½ï¿½ï¿½ï¿½Ð¼ï¿½ï¿½ã£¬Ö»ï¿½ï¿½ï¿½ï¿½ï¿½Ò»ï¿½Î¼ï¿½ï¿½ï¿½Í¿ï¿½ï¿½ï¿½ï¿½Ë£ï¿½ï¿½ï¿½ï¿½Â¸ï¿½
 }
 
