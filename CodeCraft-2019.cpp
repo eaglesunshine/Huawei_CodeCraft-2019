@@ -20,7 +20,7 @@ using namespace::std;
 int main(int argc, char *argv[])
 {
 	clock_t startTime, endTime;
-	startTime = clock();//¼ÆÊ±¿ªÊ¼
+	startTime = clock();//ï¿½ï¿½Ê±ï¿½ï¿½Ê¼
 	srand((unsigned)time(NULL));
 
 	/*if(argc < 6){
@@ -55,7 +55,7 @@ int main(int argc, char *argv[])
 	Graph_DG graph((int)(CROSS.size()), ROAD);
 	graph.initRoute(CAR, CROSS, ROAD);
 
-	//Ôì24ÍòÊý¾Ý
+	//ï¿½ï¿½24ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	//myReadfile.outPut2();
 
 	// TODO:process
@@ -119,14 +119,14 @@ int main(int argc, char *argv[])
 	//myReadfile.inTranfer(tempCAR);
 	//myReadfile.outPut(tempCAR);
 
-	endTime = clock();//¼ÆÊ±½áÊø
+	endTime = clock();//ï¿½ï¿½Ê±ï¿½ï¿½ï¿½ï¿½
 	cout << "the globalTime is " << bestTime << endl;
 	cout << "dispatch time is " << Dispatcher.computeTE(tempCAR) << endl;
 	cout << "All dispatch time is " << Dispatcher.computeTEsum(tempCAR) << endl;
 	cout << "The run time is: " << (double)(endTime - startTime) / CLOCKS_PER_SEC << "s" << endl;
-	system("pause");
+	//system("pause");
 	GlobalTime = 1;
-	for (int k = 0; k < tempCAR.size(); k++)
+	for (int k = 0; k < int(tempCAR.size()); k++)
 	{
 		if (tempCAR[k].preset == 0)
 		{
@@ -137,6 +137,6 @@ int main(int argc, char *argv[])
 	cout << "the globalTime is " << temp_time << endl;
 	cout << "dispatch time is " << Dispatcher.computeTE(tempCAR) << endl;
 	cout << "All dispatch time is " << Dispatcher.computeTEsum(tempCAR) << endl;
-	system("pause");
+	//system("pause");
 	return 0;
 }
